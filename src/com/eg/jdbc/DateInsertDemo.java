@@ -20,9 +20,11 @@ public class DateInsertDemo {
 		java.util.Date udate = sdf.parse(doj);
 		long l = udate.getTime();
 		java.sql.Date sdate = new java.sql.Date(l);
+		
 		PreparedStatement ps = connection.prepareStatement("insert into users_m values(?,?)");
 		ps.setString(1, userName);
 		ps.setDate(2, sdate);
+		
 		int rc = ps.executeUpdate();
 		if(rc == 0)
 			System.out.println("record is not inserted");
