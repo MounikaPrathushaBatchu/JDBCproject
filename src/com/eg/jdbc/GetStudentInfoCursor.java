@@ -11,7 +11,7 @@ public class GetStudentInfoCursor {
 
 	public static void main(String[] args) throws Exception {
 		Connection connection = DriverManager.getConnection("jdbc:oracle:thin:@192.168.10.230:1521:orcl","training","training");
-		CallableStatement cst = connection.prepareCall("{call getALlStudntInfo(?,?)}");
+		CallableStatement cst = connection.prepareCall("{call getAllStudntInfo(?,?)}");
 		cst.setFloat(1, 30);
 		cst.registerOutParameter(2, OracleTypes.CURSOR);
 		cst.execute();
